@@ -1,0 +1,5 @@
+	# cat=basic/enable/10; type = boolean; label = DRS - Development Reporting System: Infos, Warnings, Errors etc.: These messages will be written to DevLog (you need the extension devlog), set favoured severity below.
+log_enable = 0
+
+	# cat=basic/enable/20; type = options[Log Debug information [full] = -2, Log errors only = 3, Log warnings too = 2, Log notices too = 1, Log messages too = -1]; label = DRS - Severity: Severity of Logging. This selection will only take effect if logging is enabled beforehand.
+log_mode = 3

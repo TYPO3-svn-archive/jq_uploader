@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_jquploader_pi1&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="heading_info">You can assign to your entry up to %1$d images/ photos.
+Do you want to skip? %2$sClick here!%3$s.
+
+Allowed file formats: %4$s.
+Allowed file size: %5$s.</label>
+			<label index="back">Back</label>
+
+			<label index="msg_noEntryId">Error: No entry id given!</label>
+			<label index="msg_noAccess">Error: Access rights missed.</label>
+			<label index="msg_errorFileDelete">Error: File(s) %1$s not deleted.</label>
+			<label index="msg_successFileDelete">File(s) %1$s deleted.</label>
+			<label index="msg_successUpdateSorting">New sorting saved</label>
+			<label index="msg_successUpdateCaption">Image caption(s) saved</label>
+			<label index="msg_upload_err_ok">File upload %1$s succesfull.</label>
+			<label index="msg_upload_err_ini_size">File upload failed: %1$s Reason: file(s) to large.</label>
+			<label index="msg_upload_err_form_size">File upload failed: %1$s Reason: file(s) to large.</label>
+			<label index="msg_upload_err_partial">File upload failed: %1$s Reason: file(s) only partially uploaded.</label>
+			<label index="msg_upload_err_noimage">File %1$s ignored: It's no valid image.</label>
+			<label index="msg_upload_err_wrongext">File %1$s ignored: It has no allowed file extension.</label>
+
+			<label index="button_submit">Continue</label>
+			<label index="button_save">Save</label>
+			<label index="button_add">Add files...</label>
+			<label index="button_start">Start upload</label>
+			<label index="button_cancel">Cancel upload</label>
+			<label index="button_delete">Delete files</label>
+
+			<label index="filelist_imagecaption">Image caption:</label>
+			<label index="sorticon_alttext">Sort order</label>
+			<label index="deleteicon_alttext">Delete file</label>
+			<label index="delete_confirm">Do you really want to delete this file?</label>
+
+			<label index="info_uploadedyet"><![CDATA[<strong>Image captions</strong>
+Here already uploaded files are shown.
+Please captions to the images now. ]]></label>
+			<label index="info_uploadedyetNoJS">Do you want to delete a File, check the corresponding checkbox and click „%s”.</label>
+		</languageKey>
+
+		<languageKey index="de" type="array">
+			<label index="heading_info">Zu Ihrem Eintrag können Sie insgesamt bis zu %1$d Grafiken/ Fotos einstellen.
+Möchten Sie keine Bilder hinzufügen, %2$sklicken Sie hier%3$s.
+
+Mögliche Formate: %4$s.
+Maximale Dateigröße: %5$s.</label>
+			<label index="back">Zurück</label>
+
+			<label index="msg_noEntryId">Fehler: Kein Eintrag übergeben!</label>
+			<label index="msg_noAccess">Fehler: Sie haben nicht die ausreichende Berechtigung für diese Aktion.</label>
+			<label index="msg_errorFileDelete">Fehler: Datei(en) %1$s nicht gelöscht</label>
+			<label index="msg_successFileDelete">Datei(en) %1$s erfolgreich gelöscht</label>
+			<label index="msg_successUpdateSorting">Neue Reihenfolge gespeichert</label>
+			<label index="msg_successUpdateCaption">Bildunterschrift(en) gespeichert</label>
+			<label index="msg_upload_err_ok">Dateiübertragung erfolgreich: %1$s</label>
+			<label index="msg_upload_err_ini_size">Dateiübertragung fehlgeschlagen: %1$s Ursache: Datei(en) zu groß.</label>
+			<label index="msg_upload_err_form_size">Dateiübertragung fehlgeschlagen: %1$s Ursache: Datei(en) zu groß.</label>
+			<label index="msg_upload_err_partial">Dateiübertragung fehlgeschlagen: %1$s Ursache: Datei(en) nur teilweise übertragen.</label>
+			<label index="msg_upload_err_noimage">Die Datei %1$s wurde verworfen (keine gültige Grafik).</label>
+			<label index="msg_upload_err_wrongext">Die Datei %1$s wurde verworfen (unerlaubte Dateiendung).</label>
+
+			<label index="button_submit">Weiter</label>
+			<label index="button_save">Speichern und weiter zur Vorschau</label>
+			<label index="button_add">Dateien hinzufügen...</label>
+			<label index="button_start">Upload starten</label>
+			<label index="button_cancel">Upload abbrechen</label>
+			<label index="button_delete">Dateien löschen</label>
+
+			<label index="filelist_imagecaption">Bildunterschrift:</label>
+			<label index="sorticon_alttext">Reihenfolge mit der Maus sortieren</label>
+			<label index="deleteicon_alttext">Datei löschen</label>
+			<label index="delete_confirm">Datei wirklich löschen?</label>
+
+			<label index="info_uploadedyet"><![CDATA[<strong>Bildunterschriften</strong><br />
+Hier sehen Sie die Dateien, die bereits eingestellt wurden.
+Sie können jetzt Bildunterschriften hinzufügen.]]></label>
+			<label index="info_uploadedyetNoJS">Möchten Sie eine Datei löschen, markieren Sie diese bitte mit dem zugehörigen Häkchen und klicken Sie auf „%s”.</label>
+		</languageKey>
+	</data>
+</T3locallang>

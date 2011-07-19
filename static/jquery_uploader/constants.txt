@@ -1,0 +1,33 @@
+plugin.tx_jquploader_pi1 {
+		#cat = plugin.tx_jquploader_pi1/file/10; type = string; label = Path to upload folder
+	upload_folder   = uploads/pics
+
+		#cat = plugin.tx_jquploader_pi1/file/20; type = string; label = Path to blueimp folder
+	blueimp_folder  = EXT:jq_uploader/res/blueimp-jQuery-File-Upload
+		#cat = plugin.tx_jquploader_pi1/file/25; type = string; label = Path to jQuery UI folder
+	jQueryUI_folder = EXT:jq_uploader/res/jQueryUI/1.8.13
+
+	template {
+			#cat = plugin.tx_jquploader_pi1/file/33; type = string; label = HTML template
+		fileHTML = EXT:jq_uploader/res/template/default.tmpl.html
+			#cat = plugin.tx_jquploader_pi1/file/35; type = string; label = JavaScript template
+		fileJS   = EXT:jq_uploader/res/template/jss/default.tmpl.js
+	}
+	files {
+		sortable = EXT:jq_uploader/res/template/img/sortable.png
+		delete   = EXT:jq_uploader/res/template/img/delete.gif
+	}
+
+
+	form {
+			#cat = plugin.tx_jquploader_pi1/enable/10; type = int+; label = Max images
+		max_images = 10
+			#cat = plugin.tx_jquploader_pi1/enable/10; type = int+; label = Max image width in preview
+		maxW       = 80
+			#cat = plugin.tx_jquploader_pi1/enable/10; type = int+; label = Max image height in preview
+		maxH       = 80
+	}
+
+		#cat = plugin.tx_jquploader_pi1/links/10; type = int+; label = Target page (redirect)
+	pid.redirect = 0
+}

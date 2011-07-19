@@ -1,0 +1,33 @@
+0.2.0
+	2011-07-16
+	* Maintenance
+		Ajax update of image list
+	Ulfried Herrmann  <herrmann.at.die-netzmacher.de>
+
+0.1.2
+	2011-07-16
+	* Maintenance
+		Confirm alert for deleting files
+	Ulfried Herrmann  <herrmann.at.die-netzmacher.de>
+
+0.1.1
+	2011-07-12
+	* Maintenance
+		Update max num of uploadable files
+	Ulfried Herrmann  <herrmann.at.die-netzmacher.de>
+
+0.1.0
+	2011-06-19
+	* Maintenance
+		Implementation of blueimp jQuery File Upload Plugin
+	Ulfried Herrmann  <herrmann.at.die-netzmacher.de>
+
+0.0.2
+	2011-05-04
+	* Bugfixes
+	Ulfried Herrmann  <herrmann.at.die-netzmacher.de>
+
+0.0.1
+	2011-04-08
+	* initial code generated with kickstarter
+	Ulfried Herrmann  <herrmann.at.die-netzmacher.de>

@@ -1,0 +1,143 @@
+plugin.tx_jquploader_pi1 {
+	upload_folder = {$plugin.tx_jquploader_pi1.upload_folder}
+
+	template {
+		fileHTML = {$plugin.tx_jquploader_pi1.template.fileHTML}
+		fileJS   = {$plugin.tx_jquploader_pi1.template.fileJS}
+	}
+	includeJSlibs {
+			//  jQuery JavaScript Library
+	#	jQUploader0 = {$plugin.tx_jquploader_pi1.jQueryUI_folder}/js/jquery-1.6.1.min.js
+			//  jQuery UI for sortable / blueimp jQuery File Upload
+	#	jQUploader1 = {$plugin.tx_jquploader_pi1.jQueryUI_folder}/js/jquery-ui-1.8.13.min.js
+			//  jQuery for blueimp jQuery File Upload
+		jQUploader2 = {$plugin.tx_jquploader_pi1.blueimp_folder}/jquery.tmpl.min.js
+		jQUploader3 = {$plugin.tx_jquploader_pi1.blueimp_folder}/jquery.iframe-transport.js
+		jQUploader4 = {$plugin.tx_jquploader_pi1.blueimp_folder}/jquery.fileupload.js
+		jQUploader5 = {$plugin.tx_jquploader_pi1.blueimp_folder}/example/application.js
+	}
+	fileupload-ui = {$plugin.tx_jquploader_pi1.blueimp_folder}/jquery.fileupload-ui.js
+
+	piVars {
+		input {
+			table_name = tx_reviews_pi1
+			field_name = recordUid
+			use_md5    = 1
+		}
+		output {
+			table_name = tx_browser_pi1
+			field_name = reviews
+			use_md5    = 0
+		}
+	}
+
+	table = tx_reviews_item
+	table {
+		key_field = uid
+		image {
+			field   = image
+			caption = imagecaption
+		#	alt     = imagealttext
+		#	title   = imagetitletext
+		}
+		check_owner = 1
+		check_owner {
+			field = fe_cruser_id
+		}
+	}
+
+	form {
+		max_images = {$plugin.tx_jquploader_pi1.form.max_images}
+		maxW       = {$plugin.tx_jquploader_pi1.form.maxW}
+		maxH       = {$plugin.tx_jquploader_pi1.form.maxH}
+	}
+	pid {
+		redirect = {$plugin.tx_jquploader_pi1.pid.redirect}
+	}
+
+	files {
+		delete = IMAGE
+		delete {
+			file      = {$plugin.tx_jquploader_pi1.files.delete}
+			altText   = ###DELETEICON_ALT###
+			titleText < .altText
+			params    = class="delete-icon"
+		}
+		sortable = IMAGE
+		sortable {
+			file      = {$plugin.tx_jquploader_pi1.files.sortable}
+			altText   = ###SORTICON_ALT###
+			titleText < .altText
+			params    = class="sortable-grip"
+		}
+	}
+}
+
+page {
+	includeCSS {
+		jQUploader0 = EXT:jq_uploader/res/template/css/default_style.css
+		jQUploader2 = {$plugin.tx_jquploader_pi1.jQueryUI_folder}/themes/base/jquery-ui.css
+		jQUploader3 = {$plugin.tx_jquploader_pi1.blueimp_folder}/jquery.fileupload-ui.css
+	}
+	includeJS {
+			//  jQuery JavaScript Library
+		jQUploader0 = {$plugin.tx_jquploader_pi1.jQueryUI_folder}/js/jquery-1.6.1.min.js
+			//  jQuery UI for sortable / blueimp jQuery File Upload
+		jQUploader1 = {$plugin.tx_jquploader_pi1.jQueryUI_folder}/js/jquery-ui-1.8.13.min.js
+	}
+/*
+	includeJSFooterlibs {
+			//  jQuery JavaScript Library
+	##	jQUploader0 = {$plugin.tx_jquploader_pi1.jQueryUI_folder}/js/jquery-1.6.1.min.js
+			//  jQuery UI for sortable / blueimp jQuery File Upload
+	##	jQUploader1 = {$plugin.tx_jquploader_pi1.jQueryUI_folder}/js/jquery-ui-1.8.13.min.js
+			//  jQuery for blueimp jQuery File Upload
+		jQUploader2 = {$plugin.tx_jquploader_pi1.blueimp_folder}/jquery.tmpl.min.js
+		jQUploader3 = {$plugin.tx_jquploader_pi1.blueimp_folder}/jquery.iframe-transport.js
+		jQUploader4 = {$plugin.tx_jquploader_pi1.blueimp_folder}/jquery.fileupload.js
+		jQUploader5 = {$plugin.tx_jquploader_pi1.blueimp_folder}/example/application.js
+	##	jQUploader6 = {$plugin.tx_jquploader_pi1.blueimp_folder}/jquery.fileupload-ui.js
+	}
+*/
+}
+
+
+
+[globalVar = GP:tx_jquploader_pi1|ajaxUpload=1] || [globalVar = GP:tx_jquploader_pi1|ajaxLoad=1]
+	page >
+		// [PAGE] page object
+	page = PAGE
+	page {
+		typeNum = 0
+		config {
+			disableAllHeaderCode  = 1
+			xhtml_cleaning        = 0
+			admPanel              = 0
+		}
+		10 = CONTENT
+		10 {
+			table=tt_content
+			select{
+					// only use current page
+				pidInList = this
+					// only use current language
+				languageField = sys_language_uid
+				andWhere.cObject = COA
+				andWhere.cObject {
+						// choose all jQ Uploader plugins...
+					10 = TEXT
+					10 {
+						value = list_type = 'jq_uploader_pi1'
+					}
+						// if an UID is provided in the querystring, choose only that plugin
+					20 = TEXT
+					20 {
+						data = GPvar:tx_jquploader_pi1|plugin
+						if.isTrue.data = GPvar:tx_jquploader_pi1|plugin
+						outerWrap = AND uid = |
+					}
+				}
+			}
+		}
+	}
+[global]

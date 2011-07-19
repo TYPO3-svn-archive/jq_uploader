@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for extension 'jq_uploader'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="pi1_title">jQuery Uploader</label>
+			<label index="pi1_plus_wiz_description">Adds a upload form with drag'n'drop and progress bar to add pictures to any table by front end users</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="pi1_title">jQuery Uploader</label>
+			<label index="pi1_plus_wiz_description">Fügt ein Upload-Formular mit Drag'n'Drop und Fortschrittsbalken ein zum Hinzufügen von Bildern zu einer beliebigen Tabelle durch Frontend-Benutzer</label>
+		</languageKey>
+	</data>
+</T3locallang>

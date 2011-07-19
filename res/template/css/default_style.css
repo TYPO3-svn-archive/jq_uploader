@@ -1,0 +1,107 @@
+/* default styles for extension "tx-jquploader" */
+.tx-jquploader-pi1 .info-box {
+	margin-bottom: 1em;
+}
+
+/*
+.tx-jquploader-pi1 .form-wrap {
+	float: left;
+	width: 585px;
+}
+.tx-jquploader-pi1 .preview-wrap {
+	float: right;
+	width: 315px;
+}
+*/
+.tx-jquploader-pi1 .preview-wrap {
+	margin-top: 1em;
+}
+.tx-jquploader-pi1 form {
+	margin: 0;
+}
+
+
+ul#tx_jquploader_pi1_sortable {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+	ul#tx_jquploader_pi1_sortable label {
+		display: block;
+		font-size: .91em;
+	}
+	ul#tx_jquploader_pi1_sortable input.ip-text {
+		width: 300px;
+	}
+	ul#tx_jquploader_pi1_sortable .image-container {
+		background-position: center;
+		background-repeat: no-repeat;
+		border: 1px dashed #ccc;
+		float: left;
+		margin: 0 1em 1em 0;
+		padding: 5px;
+		position: relative;
+	}
+	ul#tx_jquploader_pi1_sortable .ip-checkbox,
+	ul#tx_jquploader_pi1_sortable img.delete-icon,
+	ul#tx_jquploader_pi1_sortable img.sortable-grip {
+		display: block;
+		position: absolute;
+		top: 10px;
+	}
+		ul#tx_jquploader_pi1_sortable .ip-checkbox {
+			left: 10px;
+		}
+			ul#tx_jquploader_pi1_sortable .ip-checkbox-hidden {
+				display: none;
+			}
+		ul#tx_jquploader_pi1_sortable img.delete-icon {
+			cursor: pointer;
+			left: 10px;
+		}
+		ul#tx_jquploader_pi1_sortable img.sortable-grip {
+			cursor: move;
+			right: 5px;
+		}
+	ul#tx_jquploader_pi1_sortable img.filelist-image {
+		background-position: center center;
+		background-repeat: no-repeat;
+		border: 1px solid rgb(211,211,211);
+	}
+
+.tx-jquploader-pi1 .preview-wrap input.button {
+	clear: both;
+	width: 250px;
+}
+
+.tx-jquploader-pi1 .fileupload-content {
+	font-size: .81em;
+}
+	.tx-jquploader-pi1 .fileupload-content .ui-progressbar {
+		width: 185px;
+	}
+
+
+.clear-both {
+	clear: both;
+}
+.margin-b {
+	margin-bottom: 1em;
+}
+
+
+.typo3-message-box             {margin-bottom: 1em}
+.typo3-message                 {border: 1px solid; background-position: 10px 12px; background-repeat: no-repeat}
+.typo3-message a               {text-decoration: underline}
+.typo3-message .message-header {font-size: 11px; font-weight: bold}
+.message-notice                {color: #777;    background-color: #f6f7fa; background-image: url('/typo3/sysext/t3skin/icons/gfx/notice.png'); border-color: #c2cbcf}
+.message-notice a              {color: #777}
+.message-information           {color: #4c73a1; background-color: #eaf7ff; background-image: url('/typo3/sysext/t3skin/icons/gfx/information.png'); border-color: #c5dbe6}
+.message-information a         {color: #4c73a1}
+.message-ok                    {color: #3b7826; background-color: #cdeaca; background-image: url('/typo3/sysext/t3skin/icons/gfx/ok.png'); border-color: #58b548}
+.message-ok a                  {color: #3b7826}
+.message-warning               {color: #9e7d4a; background-color: #fbf6de; background-image: url('/typo3/sysext/t3skin/icons/gfx/warning.png'); border-color: #b1905c}
+.message-warning a             {color: #9e7d4a}
+.message-error                 {color: #aa0225; background-color: #f6d3cf; background-image: url('/typo3/sysext/t3skin/icons/gfx/error.png'); border-color: #d66c68}
+.message-error a               {color: #aa0225}
+.typo3-message .message-body   {padding: 13px 10px 10px 35px}
