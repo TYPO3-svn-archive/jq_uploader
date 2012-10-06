@@ -1,3 +1,6 @@
+	# cat=basic/file/10; type = boolean; label=Integrate from CDN: If set, the libs will be integrated from a CDN
+#integrateFromCDN =
+
 	# cat=basic/enable/10; type = boolean; label = DRS - Development Reporting System: Infos, Warnings, Errors etc.: These messages will be written to DevLog (you need the extension devlog), set favoured severity below.
 log_enable = 0
 

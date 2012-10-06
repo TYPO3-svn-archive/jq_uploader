@@ -14,6 +14,7 @@ Allowed file size: %5$s.</label>
 			<label index="back">Back</label>
 
 			<label index="msg_noEntryId">Error: No entry id given!</label>
+			<label index="msg_noEntryConfig">Error: No entry configuration! Please configure plugin.tx_jquploader_pi1.record</label>
 			<label index="msg_noAccess">Error: Access rights missed.</label>
 			<label index="msg_errorFileDelete">Error: File(s) %1$s not deleted.</label>
 			<label index="msg_successFileDelete">File(s) %1$s deleted.</label>
@@ -53,6 +54,7 @@ Maximale Dateigröße: %5$s.</label>
 			<label index="back">Zurück</label>
 
 			<label index="msg_noEntryId">Fehler: Kein Eintrag übergeben!</label>
+			<label index="msg_noEntryConfig">Fehler: Keine Konfiguration für Eintrag! Bitte plugin.tx_jquploader_pi1.record konfigurieren</label>
 			<label index="msg_noAccess">Fehler: Sie haben nicht die ausreichende Berechtigung für diese Aktion.</label>
 			<label index="msg_errorFileDelete">Fehler: Datei(en) %1$s nicht gelöscht</label>
 			<label index="msg_successFileDelete">Datei(en) %1$s erfolgreich gelöscht</label>

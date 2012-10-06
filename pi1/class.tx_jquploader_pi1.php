@@ -68,11 +68,6 @@ class tx_jquploader_pi1 extends tslib_pibase {
 		$this->pi_loadLL();
 
 
-			//  debug
-		if ($this->logMode == -2) {
-			t3lib_div::devlog('DEBUG [piVars]', $this->prefixId, -1, $this->piVars);
-		}
-
 			//  display messages if any from previous step
 		if (empty ($this->piVars['ajaxUpload'])) {
 			$content .= $this->flushMessageStack();
@@ -194,13 +189,52 @@ class tx_jquploader_pi1 extends tslib_pibase {
 	 * @return array	$images
 	 */
 	protected function checkRecordUid() {
-			//	current record: get from piVars of configured plugin
+			//	current record: get from piVars / session of configured plugin
+		switch ($this->conf['record']) {
+		case 'session':
+				//  get record uid from session
+			$lConf         =& $this->conf['session.']['input.'];
+			$_sessionName  =& $lConf['session_name'];
+			$_sessionKey   =& $lConf['session_key'];
+#echo '<pre><b>$_sessionName @ ' . __FILE__ . '::' . __LINE__ . ':</b> ' . print_r($_sessionName, 1) . '</pre>';
+#$extSessionData = $GLOBALS['TSFE']->fe_user->getKey('ses', 'org_pinboard');
+#echo '<pre><b>$extSessionData @ ' . __FILE__ . '::' . __LINE__ . ':</b> ' . print_r($extSessionData, 1) . '</pre>'; exit;
+
+			$extSessionData = $GLOBALS['TSFE']->fe_user->getKey('ses', $_sessionName);
+#echo '<pre><b>$extSessionData @ ' . __FILE__ . '::' . __LINE__ . ':</b> ' . print_r($extSessionData, 1) . '</pre>'; exit;
+			$this->recordUid = $extSessionData[$_sessionKey];
+			if (!empty ($this->conf['session.']['input.']['use_md5'])) {
+					//  get integer uid from md5 uid
+				$this->recordUidMd5toInt();
+			}
+				//  debug
+			if ($this->logMode == -2) {
+				t3lib_div::devlog('DEBUG [session]', $this->prefixId, -1, $extSessionData);
+			}
+			break;
+		case 'piVars':
+				//  debug
+			if ($this->logMode == -2) {
+				t3lib_div::devlog('DEBUG [piVars]', $this->prefixId, -1, $this->piVars);
+			}
+				//  get record uid from piVars
 		$lConf        =& $this->conf['piVars.']['input.'];
 		$_piVarsTable =& $lConf['table_name'];
 		$_piVarsField =& $lConf['field_name'];
 		$_piVars = t3lib_div::_GP($_piVarsTable);
-
-		if (empty ($_piVars[$_piVarsField])) {
+			$this->recordUid = $_piVars[$_piVarsField];
+			if (!empty ($this->conf['piVars.']['input.']['use_md5'])) {
+					//  get integer uid from md5 uid
+				$this->recordUidMd5toInt();
+			}
+			break;
+		default:
+			if ($this->logMode <= 2) {
+				t3lib_div::devlog('ERROR [INVALID CALL]: ' . $this->pi_getLL('msg_noEntryConfig') . ' - Abort.', $this->prefixId, 2);
+			}
+			break;
+		}
+		if (empty ($this->recordUid)) {
 			if ($this->logMode <= 2) {
 				t3lib_div::devlog('ERROR [INVALID CALL]: ' . $this->pi_getLL('msg_noEntryId') . ' - Abort.', $this->prefixId, 2);
 			}
@@ -209,17 +243,14 @@ class tx_jquploader_pi1 extends tslib_pibase {
 			return;
 		}
 
-		$this->recordUid = $_piVars[$_piVarsField];
+
+
+
+		$this->recordUid = (int)$this->recordUid;
 			//  debug
 		if ($this->logMode == -2) {
 			t3lib_div::devlog('DEBUG [RECORD UID]: ' . $this->recordUid . '.', $this->prefixId, -1);
 		}
-
-		if (!empty ($this->conf['piVars.']['input.']['use_md5'])) {
-				//  get integer uid from md5 uid
-			$this->recordUidMd5toInt();
-		}
-		$this->recordUid = (int)$this->recordUid;
 	}
 
 
@@ -926,10 +957,11 @@ class tx_jquploader_pi1 extends tslib_pibase {
 			foreach ($imageFiles as $iKey => $iVal) {
 				$iConf['file'] = $this->conf['upload_folder'] . $iVal;
 				$iRsrc         = $this->cObj->IMG_RESOURCE($iConf);
+				$tRsrc         = $this->cObj->cObjGetSingle($this->conf['files.']['transgif'], $this->conf['files.']['transgif.']);
 				$markerArray = array(
 					'###FILELIST_INDEX###'         => $index,
 					'###FILELIST_FILENAME###'      => $iVal,
-					'###FILELIST_CLEARGIF###'      => '<img src="/clear.gif" class="filelist-image" 
+					'###FILELIST_CLEARGIF###'      => '<img src="' . $tRsrc . '" class="filelist-image"
 															style="background-image: url(' . $iRsrc . '); height: ' . ($this->conf['form.']['maxH'] + 30) . 'px; width: ' . ($this->conf['form.']['maxW'] + 10) . 'px;" />',
 					'###FILELIST_CAPTION_VALUE###' => htmlspecialchars(trim($imageCaption[$iKey]), ENT_COMPAT, 'UTF-8', $double_encode = FALSE),
 				);
@@ -1151,8 +1183,7 @@ class tx_jquploader_pi1 extends tslib_pibase {
 			$this->messageStack = $messageStackDefault;
 
 				// overwrite session with empty array
-			$GLOBALS['TSFE']->fe_user->setKey('ses', $this->extKey . '_messagestack', array());
-			$GLOBALS['TSFE']->storeSessionData();
+			$this->cleanMessageStack();
 
 			return $content;
 		}

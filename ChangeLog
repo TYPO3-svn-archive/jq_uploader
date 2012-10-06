@@ -1,3 +1,15 @@
+0.4.0
+	2012-10-03
+	* Maintenance
+		UPD  blueimp / jQuery-File-Upload plugin
+	Ulfried Herrmann  <herrmann.at.die-netzmacher.de>
+
+0.3.0
+	2012-09-30
+	* Maintenance
+		Add session control for record to add files
+	Ulfried Herrmann  <herrmann.at.die-netzmacher.de>
+
 0.2.0
 	2011-07-16
 	* Maintenance

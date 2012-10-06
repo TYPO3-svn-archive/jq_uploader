@@ -3,7 +3,7 @@ plugin.tx_jquploader_pi1 {
 	upload_folder   = uploads/pics
 
 		#cat = plugin.tx_jquploader_pi1/file/20; type = string; label = Path to blueimp folder
-	blueimp_folder  = EXT:jq_uploader/res/blueimp-jQuery-File-Upload
+	blueimp_folder  = EXT:jq_uploader/res/blueimp-jQuery-File-Upload-d90c8e4
 		#cat = plugin.tx_jquploader_pi1/file/25; type = string; label = Path to jQuery UI folder
 	jQueryUI_folder = EXT:jq_uploader/res/jQueryUI/1.8.13
 
@@ -14,6 +14,7 @@ plugin.tx_jquploader_pi1 {
 		fileJS   = EXT:jq_uploader/res/template/jss/default.tmpl.js
 	}
 	files {
+		transgif = EXT:jq_uploader/res/template/img/trans.gif
 		sortable = EXT:jq_uploader/res/template/img/sortable.png
 		delete   = EXT:jq_uploader/res/template/img/delete.gif
 	}
